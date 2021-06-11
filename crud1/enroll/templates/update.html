@@ -40,14 +40,27 @@
         font-size:26px;
     }
     .btn2 button:hover{
-        color:grey;
+        color:black;
+        background-color:grey;
     }
     .btn3{
         position:relative;
         left:365px;
-        bottom:50px;
-        
+        bottom:50px; 
     }
+
+    .btn3:hover{
+        color:orange;
+    }
+      .success{
+        color:green;
+        position:relative;
+        left:120px;
+    }
+    .form1{
+        color:red;
+    }
+
 
 
     </style>
@@ -68,6 +81,11 @@
 </div>
 <a class="btn3" href="{% url 'home' %}"   style="display:inline-block;" >back to Home</a>
 </form>
+{% if messages %}
+{% for message in messages %}
+<span {% if message.tags %} class="{{message.tags}}"{% endif %}> {{message}}</span>
+{% endfor %}
+{% endif %}
 </div>
 
 

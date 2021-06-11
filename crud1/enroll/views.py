@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponseRedirect
 from .form import Student
 from enroll.models import Data
+from django.contrib import messages 
 
 # Create your views here.
 
@@ -19,7 +20,10 @@ def show(request):
             # print(ps)
             reg=Data(name=nm,email=em,password=ps)
             reg.save()
+            messages.success(request,"Add sucessfully!!")
+            
     else:
+
      fm=Student()
     stud=Data.objects.all()
     return render(request,'add.html',{'form':fm,'student':stud})
@@ -33,6 +37,7 @@ def update(request,id):
 
         if fm.is_valid():
            fm.save()
+           messages.success(request,"Add sucessfully!!")
     else:
         pi=Data.objects.get(pk=id)
         fm=Student(instance=pi)

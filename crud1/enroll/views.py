@@ -51,4 +51,4 @@ def delete_data(request,id):
     if request.method=="POST":
         pi=Data.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/s/')
+        return HttpResponseRedirect('/')
